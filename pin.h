@@ -22,8 +22,8 @@ public:
     pin():pin(0) {}
     pin(int which){stringstream ss; ss<<which; controlled=ss.str();}
     pin(string which):controlled(which){}
-    
-    //enters import file 
+
+    //enters import file
     //@returns success of entry
     bool unexportGP();
     //enters export file
@@ -46,7 +46,7 @@ public:
         @returns number of pin controlled.
     */
     string getNum(){return controlled;}
-    
+
     //destructor
     virtual ~pin(){}
 

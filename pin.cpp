@@ -1,6 +1,6 @@
 #include "pin.h"
-    
-bool unexportGP(){
+
+bool pin::unexportGP(){
     ofstream fout(UELOC)
     if(!fout){
         return false;
@@ -12,7 +12,7 @@ bool unexportGP(){
     }
 }
 
-bool exportGP(){
+bool pin::exportGP(){
     ofstream fin(ELOC)
     if(!fin) return false;
     else{
@@ -22,8 +22,8 @@ bool exportGP(){
     }
 }
 
-bool setDirection(string whcih){
-    ofstream fout.(GPDIR(controlled));
+bool pin::setDirection(string whcih){
+    ofstream fout(GPDIR(controlled));
     if(!fout) return false;
     else{
         fout << which;
@@ -32,12 +32,33 @@ bool setDirection(string whcih){
     }
 }
 
-bool setValue(string newVal){
-    ofstream 
+bool pin::setValue(string newVal){
+    ofstream fout(GPVAL(controlled));
+    if(fout) return false;
+    else{
+      fout << which;
+      fout.close();
+      return true;
+    }
 }
 
-bool getVal(string&){
-    
+bool pin::getVal(string& where){
+    where="";
+    ifstream fin ("filename.txt",ios::in);
+    if(fin.is_open()) {
+      fin>>where;
+      if(where=="0")
+        where="1";
+      else
+        where="0";
+      fin.close();
+      return true;
+      }
+    else {
+      return false;
+    }
 }
-    
-virtual ~pin(){}
+
+virtual pin::~pin(){
+  unexportGP();
+}
