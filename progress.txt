@@ -1,7 +1,8 @@
 In Progress
 
-main (calling all pins and setting logic) (Brandon)
 
+Put Aside
+main (calling all pins and setting logic) (Brandon)
 
 Finished
 pin.h
