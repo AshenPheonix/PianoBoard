@@ -47,7 +47,7 @@ int main (){
       for(auto &p: GPIOPins){
         string getter;
         if(p->getVal(getter)) && getter != "0"){
-          if(p == GPIOPins.back())
+          /*if(p == GPIOPins.back())
             locations.rotate();
           else{
             system("omxplayer " +locations.get() +".mp3");
@@ -55,6 +55,8 @@ int main (){
             while(temp)
               temp = ( (p->getVal(getter) && getter!="0")?true:false);
           }
+          */
+          cout << "Reading Value"<<endl;
         }
       }
 
