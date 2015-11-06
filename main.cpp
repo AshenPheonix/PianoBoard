@@ -43,14 +43,18 @@ int main (){
       p->setDirection("in");
 
     while (1) {
-      usleep(10000);
+      usleep(100000);
       for(auto &p: GPIOPins){
         string getter;
         if(p->getVal(getter)) && getter != "0"){
           if(p == GPIOPins.back())
             locations.rotate();
-          else
-            
+          else{
+            system("omxplayer " +locations.get() +".mp3");
+            bool temp(true);
+            while(temp)
+              temp = ( (p->getVal(getter) && getter!="0")?true:false);
+          }
         }
       }
 
