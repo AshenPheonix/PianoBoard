@@ -3,6 +3,7 @@
     class for handling pin gpio
 */
 #pragma once
+#include <iostream>
 #include <fstream>
 #include <gpio.h>
 #include <sstream>
@@ -20,15 +21,8 @@ class pin{
 public:
     //constuctors, all, c++ 11+
     pin():pin(0) {}
-    pin(int which){stringstream ss; ss<<which; controlled=ss.str();}
-    pin(string which):controlled(which){}
-
-    //enters import file
-    //@returns success of entry
-    bool unexportGP();
-    //enters export file
-    ///@returns success of entry
-    bool exportGP();
+    pin(int which){stringstream ss; ss<<which; controlled=ss.str(); exportGP();}
+    pin(string which):controlled(which){exportGP();}
     //sets direction of pin
     //@returns success
     bool setDirection(string);
@@ -52,4 +46,10 @@ public:
 
 private:
     string controlled;
+    //enters import file
+    // success of entry
+    void unexportGP();
+    //enters export file
+    // success of entry
+    void exportGP();
 };
