@@ -12,8 +12,8 @@ using namespace std;
 struct locs {
   vector<string> v;
   int selected;
-  rotate(){selected = ( (selected==v.length()-1)? 0:selected+1);}
-  get(){return v[selected];}
+  void rotate(){selected = ( (selected==v.length()-1)? 0:selected+1);}
+  string get(){return v[selected];}
 };
 
 int main (){
@@ -46,7 +46,7 @@ int main (){
       usleep(100000);
       for(auto &p: GPIOPins){
         string getter;
-        if(p->getVal(getter)) && getter != "0"){
+        if(p->getVal(getter)) && getter != " ``"){
           /*if(p == GPIOPins.back())
             locations.rotate();
           else{
@@ -56,7 +56,7 @@ int main (){
               temp = ( (p->getVal(getter) && getter!="0")?true:false);
           }
           */
-          cout << "Reading Value"<<endl;
+          cout << "Reading Value from :" << p->getNum() <<endl;
         }
       }
 

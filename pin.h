@@ -5,7 +5,6 @@
 #pragma once
 #include <iostream>
 #include <fstream>
-#include <gpio.h>
 #include <sstream>
 #include <string>
 #define ELOC "/sys/class/gpio/export"

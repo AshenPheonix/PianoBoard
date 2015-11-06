@@ -26,11 +26,11 @@ bool pin::exportGP(){
     }
 }
 
-bool pin::setDirection(string whcih){
+bool pin::setDirection(string which){
     ofstream fout(GPDIR(controlled));
     if(!fout) return false;
     else{
-        fout << which;
+        fout << which.c_str();
         fout.close();
         return true;
     }
@@ -40,7 +40,7 @@ bool pin::setValue(string newVal){
     ofstream fout(GPVAL(controlled));
     if(fout) return false;
     else{
-      fout << which;
+      fout << newVal.c_str();
       fout.close();
       return true;
     }
@@ -61,8 +61,4 @@ bool pin::getVal(string& where){
     else {
       return false;
     }
-}
-
-virtual pin::~pin(){
-  unexportGP();
 }
