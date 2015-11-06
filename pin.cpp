@@ -1,9 +1,10 @@
 #include "pin.h"
 
 bool pin::unexportGP(){
-    ofstream fout(UELOC)
+    ofstream fout(UELOC);
     if(!fout){
-        return false;
+        cout<<"Error occured loading unexport file on "<<controlled;
+        exit(1);
     }
     else{
         fout << controlled;
@@ -13,8 +14,11 @@ bool pin::unexportGP(){
 }
 
 bool pin::exportGP(){
-    ofstream fin(ELOC)
-    if(!fin) return false;
+    ofstream fin(ELOC);
+    if(!fin){
+      cout<<"Error occured loading export file on "<<controlled;
+      exit(1);
+    }
     else{
         fin << controlled;
         fin.close();
