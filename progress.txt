@@ -1,9 +1,0 @@
-In Progress
-
-
-Put Aside
-main (calling all pins and setting logic) (Brandon)
-
-Finished
-pin.h
-pin.cpp

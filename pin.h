@@ -1,6 +1,9 @@
 /*
-    Author: Brandon Porter
+    Pin.h
+
+    @Author: Brandon Porter
     class for handling pin gpio
+    version 0.9
 */
 #pragma once
 #include <iostream>
@@ -14,7 +17,7 @@
 
 using namespace std;
 
-//note, this is a p1 board.
+//note, this is a p1 board. Controlls pins and returns data about them
 
 class pin{
 public:
@@ -25,7 +28,8 @@ public:
     //sets direction of pin
     //@returns success
     bool setDirection(string);
-    /*sets value of pin
+    /*
+      sets value of pin
       @returns success of action
     */
     bool setValue(string);
@@ -45,7 +49,7 @@ public:
 
 private:
     string controlled;
-    //enters import file
+    // enters import file
     // success of entry
     void unexportGP();
     //enters export file

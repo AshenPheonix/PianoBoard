@@ -1,5 +1,16 @@
+/**
+    Pin.h
+
+    @Author: Brandon Porter
+    Purpose: class for handling pin gpio
+    version 0.9
+*/
 #include "pin.h"
 
+/**
+  enters import file
+  success of entry
+*/
 bool pin::unexportGP(){
     ofstream fout(UELOC);
     if(!fout){
@@ -12,7 +23,10 @@ bool pin::unexportGP(){
         return true;
     }
 }
-
+/**
+  enters export file
+  success of entry
+*/
 bool pin::exportGP(){
     ofstream fin(ELOC);
     if(!fin){
@@ -26,6 +40,10 @@ bool pin::exportGP(){
     }
 }
 
+/**
+  sets direction of pin
+  @returns success
+*/
 bool pin::setDirection(string which){
     ofstream fout(GPDIR(controlled));
     if(!fout) return false;
@@ -36,6 +54,10 @@ bool pin::setDirection(string which){
     }
 }
 
+/**
+  sets value of pin
+  @returns success of action
+*/
 bool pin::setValue(string newVal){
     ofstream fout(GPVAL(controlled));
     if(fout) return false;
@@ -46,6 +68,11 @@ bool pin::setValue(string newVal){
     }
 }
 
+/**
+    get value in pin
+    @Args: string& returns empty string on failure, else returns value
+    @returns success of action
+*/
 bool pin::getVal(string& where){
     where="";
     ifstream fin ("filename.txt",ios::in);
